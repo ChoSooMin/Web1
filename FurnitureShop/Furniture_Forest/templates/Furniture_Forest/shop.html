@@ -1,0 +1,299 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Furniture Forest</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/templatemo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+
+</head>
+
+<body>
+    <!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@furniture-forest.com">info@furniture-forest.com</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:02-0000-0000">02-0000-0000</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                Forest
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Shop</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <a class="nav-icon position-relative text-decoration-none" href="shopping-basket.html">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Modal -->
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- Start Content -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-3">
+                <h1 class="h2 pb-4">Categories</h1>
+                <ul class="list-unstyled templatemo-accordion">
+                    <li><a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">All</a></li>
+                    <li><a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">Chair</a></li>
+                    <li><a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">Sofa</a></li>
+                    <li><a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">Table</a></li>
+                    <li><a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">Carpet</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="https://images.eq3.com/image-service/790a0341-5427-11ea-966f-0af5f9f3b9c4/COMPRESSED.jpg">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
+                                <p class="text-center mb-0">$250.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="{% static 'img/shop_01.png' %}">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
+                                <p class="text-center mb-0">$250.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="{% static 'img/shop_02.png' %}" width="21" height="28">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
+                                <p class="text-center mb-0">$250.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="https://cdn.crowdpic.net/list-thumb/thumb_l_993AB57A3A5CFD9B118228199E746F61.jpg">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
+                                <p class="text-center mb-0">$250.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="https://media.istockphoto.com/photos/beige-carpet-picture-id487745267" width="21" height="28">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
+                                <p class="text-center mb-0">$250.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="data:image/jpeg;base64,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">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
+                                <p class="text-center mb-0">$250.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="https://images-na.ssl-images-amazon.com/images/I/611C8z-xBfL._SL1000_.jpg">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
+                                <p class="text-center mb-0">$250.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="https://media.architecturaldigest.com/photos/5f4e9c54072307c75638c0f1/1:1/w_1280%2Cc_limit/Screen%252520Shot%2525202020-09-01%252520at%2525203.08.43%252520PM.pngChair">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
+                                <p class="text-center mb-0">$250.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="https://nordicdesign.com.au/wp-content/uploads/2020/06/lounge-furniture-adelaide-category-joslin.jpg">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
+                                <p class="text-center mb-0">$250.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- End Content -->
+
+    <!-- Start Footer -->
+    <footer class="bg-dark" id="tempaltemo_footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">Furniture Forest</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt fa-fw"></i>
+                            Seoul, Korea
+                        </li>
+                        <li>
+                            <i class="fa fa-phone fa-fw"></i>
+                            <a class="text-decoration-none" href="tel:02-0000-0000">02-0000-0000</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope fa-fw"></i>
+                            <a class="text-decoration-none" href="mailto:info@furniture-forest.com">info@furniture-forest.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#">Chair</a></li>
+                        <li><a class="text-decoration-none" href="#">Sofa</a></li>
+                        <li><a class="text-decoration-none" href="#">Table</a></li>
+                        <li><a class="text-decoration-none" href="#">Carpet</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#">Home</a></li>
+                        <li><a class="text-decoration-none" href="#">Shop</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2021 Company Name 
+                            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Start Script -->
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/templatemo.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <!-- End Script -->
+</body>
+
+</html>
