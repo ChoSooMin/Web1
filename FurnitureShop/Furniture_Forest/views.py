@@ -1,15 +1,29 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+from .models import Product
 
-# Create your views here.
+# baseUrl/ or baseUrl/index.html
 def index(request) :
     return render(request, 'Furniture_Forest/index.html')
 
-def shopSingle(request) : 
-    return render(request, 'Furniture_Forest/shop-single.html')
-
+# baseUrl/shop.html
 def shop(request) :
-    return render(request, 'Furniture_Forest/shop.html')
+    # 목록을 가져오고, 리스트에 저장
+    productList = Product.objects.all()
+    context = { "productList": productList } # 데이터 저장 객체
+    
+    return render(request, 'Furniture_Forest/shop.html', context)
 
+# baseUrl/shop-detail.html
+def shopDetail(request) : 
+    # query에서 product_id를 가져온다.
+    product_id = request.GET['product_id'] # queryStr으로 보내는 건 GET
+    product = Product.objects.get(pk=product_id)
+    context = { "product": product }
+
+    return render(request, 'Furniture_Forest/shop-detail.html', context)
+
+# baseUrl/shopping-basket.html
 def shoppingBasket(request) :
     return render(request, 'Furniture_Forest/shopping-basket.html')
