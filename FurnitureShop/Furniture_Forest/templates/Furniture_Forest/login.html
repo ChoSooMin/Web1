@@ -61,7 +61,7 @@
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="login.html">
+                    <a class="nav-icon position-relative text-decoration-none" href="#">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
                     </a>
                 </div>
@@ -71,113 +71,38 @@
     </nav>
     <!-- Close Header -->
 
-    <!-- Start Banner Hero -->
-    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="{% static 'img/straw.jpg' %}" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>Furniture Forest</b> Shop</h1>
-                                <h3 class="h2">자연 친화적인 가구를 경험하세요!</h3>
-                                <p>
-                                    Furniture Forest는 자연을 중요시합니다.<br>
-                                    마스크 줄에 발이 낀 새, 플라스틱 조각에 박힌 거북이를 보고 무언가 느끼셨나요?<br>
-                                    그렇다면 Furniture Forest를 경험해보세요.
-                                </p>
-                                
-                            </div>
-                        </div>
+    <!-- Start Contact -->
+    <div class="container py-5">
+        <h1 class="navbar-brand text-success logo h1 align-self-center">Forest Furniture Shop</h1>
+        <div class="row py-5">
+            <form class="col-md-9 m-auto" method="post" role="form">
+                <div class="row">
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputname">Name</label>
+                        <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Name">
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputemail">Email</label>
+                        <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Email">
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="{% static 'img/sofa.png' %}" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Eco Sofa</h1>
-                                <h3 class="h2">친환경 섬유</h3>
-                                <p>
-                                    이달에 가장 많이 팔린 제품을 만나보세요.<br>
-                                    친환경 섬유로 제작되어 인체에 전혀 해롭지 않습니다.
-                                </p>
-                            </div>
-                        </div>
+                <div class="mb-3">
+                    <label for="inputsubject">Subject</label>
+                    <input type="text" class="form-control mt-1" id="subject" name="subject" placeholder="Subject">
+                </div>
+                <div class="mb-3">
+                    <label for="inputmessage">Message</label>
+                    <textarea class="form-control mt-1" id="message" name="message" placeholder="Message" rows="8"></textarea>
+                </div>
+                <div class="row">
+                    <div class="col text-end mt-2">
+                        <button type="submit" class="btn btn-success btn-lg px-3">Let’s Talk</button>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="{% static 'img/chair.png' %}" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Green Chair</h1>
-                                <h3 class="h2">목재 의자</h3>
-                                <p>
-                                    녹색으로 포인트를 주는건 어떤가요?
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
-        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
-            <i class="fas fa-chevron-left"></i>
-        </a>
-        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
-            <i class="fas fa-chevron-right"></i>
-        </a>
     </div>
-    <!-- End Banner Hero -->
-    
-
-
-    <!-- Start Categories of The Month -->
-    <section class="container py-5">
-        <div class="row text-center pt-3">
-            <div class="col-lg-6 m-auto">
-                <h1 class="h1">이번 달, 가장 인기 있는 제품들을 만나보세요</h1>
-                <p>
-                    매달 인기 있는 카테고리가 바뀝니다. 다른 사용자들은 어떤 제품을 구매할까요?
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="shop.html"><img src="{% static 'img/chair_category.jpeg' %}" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">Chair</h5>
-                <p class="text-center"><a href="shop.html" class="btn btn-success">Go Shop</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="shop.html"><img src="{% static 'img/sofa_category.png' %}" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Sofa</h2>
-                <p class="text-center"><a href="shop.html" class="btn btn-success">Go Shop</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="shop.html"><img src="{% static 'img/table_category.png' %}" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Table</h2>
-                <p class="text-center"><a href="shop.html" class="btn btn-success">Go Shop</a></p>
-            </div>
-        </div>
-    </section>
-    <!-- End Categories of The Month -->
+    <!-- End Contact -->
 
 
     <!-- Start Footer -->
@@ -241,11 +166,11 @@
     <!-- End Footer -->
 
     <!-- Start Script -->
-    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
-    <script src="{% static 'js/jquery-migrate-1.2.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/templatemo.js' %}"></script>
-    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/templatemo.js"></script>
+    <script src="assets/js/custom.js"></script>
     <!-- End Script -->
 </body>
 
