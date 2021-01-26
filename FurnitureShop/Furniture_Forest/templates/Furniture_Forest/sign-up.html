@@ -5,9 +5,9 @@
 <!-- Start Contact -->
 <div class="container py-5">
     <h1 class="navbar-brand text-success logo h1 align-self-center" style="text-align: center;">Forest Furniture Shop</h1>
-    <h2 class="navbar-brand text-success logo h2 align-self-center" style="text-align: center;"><b>로그인</b></h2>
+    <h2 class="navbar-brand text-success logo h2 align-self-center" style="text-align: center;"><b>회원가입</b></h2>
     <div class="row py-5">
-        <form class="col-md-9 m-auto" method="post" action="./login"> {% csrf_token %}
+        <form class="col-md-9 m-auto" method="POST" action="./signUp"> {% csrf_token %}
             <div class="row">
                 <div class="form-group col-md-6 mb-3">
                     <label for="inputemail">Email</label>
@@ -15,13 +15,21 @@
                 </div>
                 <div class="form-group col-md-6 mb-3">
                     <label for="input">Password</label>
-                    <input type="password" class="form-control mt-1" id="pw" name="pw" placeholder="Password">
+                    <input type="text" class="form-control mt-1" id="password" name="password" placeholder="password">
                 </div>
+            </div>
+            <div class="mb-3">
+                <label for="input">Name</label>
+                <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Subject">
+            </div>
+            <div class="mb-3">
+                <label for="input">Address</label>
+                <textarea class="form-control mt-1" id="address" name="address" placeholder="Address"
+                    rows="8"></textarea>
             </div>
             <div class="row">
                 <div class="col text-end mt-2">
-                    <button type="submit" class="btn btn-success btn-lg px-3">로그인</button>
-                    <a href="./sign-up.html" class="btn btn-success btn-lg px-3">회원가입</a>
+                    <button type="submit" class="btn btn-success btn-lg px-3">회원가입</button>
                 </div>
                 
             </div>

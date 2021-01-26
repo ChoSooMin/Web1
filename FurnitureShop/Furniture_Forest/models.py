@@ -16,6 +16,7 @@ class User(models.Model) :
     email = models.EmailField()
     pw = models.CharField(max_length = 255)
     name = models.CharField(max_length = 255)
+    address = models.CharField(max_length = 255, null = True)
 class Basket(models.Model) :
     objects = models.Manager()
 
