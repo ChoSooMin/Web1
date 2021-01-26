@@ -27,10 +27,10 @@ class UserManager(BaseUserManager) :
         return user
 
     # 일반 유저 생성
-    def create_user(self, email, username = '', password = None, **extra_fields): 
+    def create_user(self, email, username, password, address, **extra_fields): 
         extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_superuser', False)
-        return self._create_user(email, username, password, **extra_fields)
+        return self._create_user(email, username, password, address, **extra_fields)
 
     # 관리자 유저 생성
     def create_superuser(self, email, password, **extra_fields):
@@ -42,7 +42,7 @@ class UserManager(BaseUserManager) :
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser = True')
 
-        return self._create_user(email, username, password, **extra_fields)
+        return self._create_user(email, "조수민", password, "서울시 양천구 신정동", **extra_fields)
 
 class User(AbstractUser) :
     email = models.EmailField(verbose_name = "email", max_length = 255, unique = True)

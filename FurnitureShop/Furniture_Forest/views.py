@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from .models import Product, User
-from django.contrib.auth.models import User
 from django.contrib import auth
 
 # baseUrl/ or baseUrl/index.html
@@ -52,15 +51,14 @@ def signUpPage(request) :
 # 회원가입
 def signUp(request) :
     # 회원가입 후, 로그인 화면으로 이동
-    # email = request.POST['email']
-    # pw = request.POST['password']
-    # name = request.POST['name']
-    # address = request.POST['address']
+    email = request.POST['email']
+    pw = request.POST['password']
+    name = request.POST['name']
+    address = request.POST['address']
 
-    # user = User.objects.create_user(username=name, email=email, password=pw)
+    user = User.objects.create_user(email=email, username=name, password=pw, address=address)
 
-    pass
-    # return HttpResponseRedirect(reverse('index')) # 인덱스 화면으로 넘어간다
+    return HttpResponseRedirect(reverse('index')) # 인덱스 화면으로 넘어간다
 
 
 # 로그인
