@@ -62,3 +62,4 @@ class Basket(models.Model) :
 
     userIdx = models.ForeignKey(User, on_delete=models.CASCADE) # 사용자 idx
     productId = models.ForeignKey(Product, on_delete=models.CASCADE) # 장바구니 안에 담긴 상품의 번호
+    productQuantity = models.IntegerField(default=1) # 상품의 개수
