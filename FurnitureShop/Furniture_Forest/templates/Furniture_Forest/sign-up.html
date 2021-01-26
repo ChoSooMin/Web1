@@ -27,6 +27,13 @@
                 <textarea class="form-control mt-1" id="address" name="address" placeholder="Address"
                     rows="8"></textarea>
             </div>
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
             <div class="row">
                 <div class="col text-end mt-2">
                     <button type="submit" class="btn btn-success btn-lg px-3">회원가입</button>

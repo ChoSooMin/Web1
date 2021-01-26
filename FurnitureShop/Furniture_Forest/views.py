@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from .models import Product, User
-from django.contrib import auth
+from django.contrib import auth, messages
 
 # baseUrl/
 def index(request) :
@@ -50,14 +50,20 @@ def login(request) :
         user = auth.authenticate(request, email=email, password=pw)
 
         if user is not None:
-            auth.login(request, user)
-            return HttpResponseRedirect(reverse('index'))
+            auth.login(request, user) # 로그인하고
+            return HttpResponseRedirect(reverse('index')) # index 페이지로 이동
         else:
-            return render(request, 'Furniture_Forest/login.html', {'error': '이메일 또는 비밀번호가 올바르지 않습니다'})
+            messages.error(request, '이메일 또는 비밀번호가 올바르지 않습니다')
+            return render(request, 'Furniture_Forest/login.html')
     
     else:
         # 아니라면 로그인 화면을 렌더링한다.
         return render(request, 'Furniture_Forest/login.html')
+
+# 로그아웃
+def logOut(request) :
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('index'))
 
 # 회원가입
 def signUp(request) :
@@ -69,9 +75,15 @@ def signUp(request) :
         name = request.POST['name']
         address = request.POST['address']
         
-        user = User.objects.create_user(email=email, username=name, password=pw, address=address)
-        # auth.login(request, user)
-        return HttpResponseRedirect(reverse('index'))
+        try :
+            user = User.objects.create_user(email=email, username=name, password=pw, address=address)
+        except Exception as ex: # DB Error
+            messages.error(request, '이미 존재하는 회원 정보입니다')
+            return render(request, 'Furniture_Forest/sign-up.html')
 
-    # 아니라면 화면을 렌더링해준다.
+        # 정상적으로 회원가입이 되었다면
+        auth.login(request, user) # 로그인하고
+        return HttpResponseRedirect(reverse('index')) # 인덱스 페이지로 이동
+
+    # 아니라면 회원가입 화면을 렌더링해준다.
     return render(request, 'Furniture_Forest/sign-up.html')

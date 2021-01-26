@@ -8,7 +8,6 @@
     <h2 class="navbar-brand text-success logo h2 align-self-center" style="text-align: center;"><b>로그인</b></h2>
     <div class="row py-5">
         <form class="col-md-9 m-auto" method="post" action="{% url 'login' %}"> {% csrf_token %}
-            {% include "form_errors.html" %}
             <div class="row">
                 <div class="form-group col-md-6 mb-3">
                     <label for="inputemail">Email</label>
@@ -19,6 +18,13 @@
                     <input type="password" class="form-control mt-1" id="pw" name="pw" placeholder="Password">
                 </div>
             </div>
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
             <div class="row">
                 <div class="col text-end mt-2">
                     <button type="submit" class="btn btn-success btn-lg px-3">로그인</button>
