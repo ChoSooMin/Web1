@@ -4,11 +4,11 @@ from django.urls import reverse
 from .models import Product, User
 from django.contrib import auth
 
-# baseUrl/ or baseUrl/index.html
+# baseUrl/
 def index(request) :
     return render(request, 'Furniture_Forest/index.html')
 
-# baseUrl/shop.html
+# baseUrl/shop
 def shop(request) :
     # 목록을 가져오고, 리스트에 저장
     productList = Product.objects.all()
