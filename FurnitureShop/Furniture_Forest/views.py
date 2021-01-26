@@ -40,46 +40,38 @@ def addToBasket(request) :
 def shoppingBasket(request) :
     return render(request, 'Furniture_Forest/shopping-basket.html')
 
-# 로그인 화면 불러오기
-def loginPage(request) :
-    return render(request, 'Furniture_Forest/login.html')
+# 로그인
+def login(request) :
+    # POST 방식의 request가 들어오면, 로그인을 해주고
+    if request.method == "POST":
+        email = request.POST['email']
+        pw = request.POST['pw']
 
-# 회원가입 화면 불러오기
-def signUpPage(request) :
-    return render(request, 'Furniture_Forest/sign-up.html')
+        user = auth.authenticate(request, email=email, password=pw)
+
+        if user is not None:
+            auth.login(request, user)
+            return HttpResponseRedirect(reverse('index'))
+        else:
+            return render(request, 'Furniture_Forest/login.html', {'error': '이메일 또는 비밀번호가 올바르지 않습니다'})
+    
+    else:
+        # 아니라면 로그인 화면을 렌더링한다.
+        return render(request, 'Furniture_Forest/login.html')
 
 # 회원가입
 def signUp(request) :
-    # 회원가입 후, 로그인 화면으로 이동
-    email = request.POST['email']
-    pw = request.POST['password']
-    name = request.POST['name']
-    address = request.POST['address']
+    # POST 방식의 request가 들어오면, 회원가입을 해주고
+    if request.method == "POST":
+        # 회원가입 후, 로그인 화면으로 이동
+        email = request.POST['email']
+        pw = request.POST['password']
+        name = request.POST['name']
+        address = request.POST['address']
+        
+        user = User.objects.create_user(email=email, username=name, password=pw, address=address)
+        # auth.login(request, user)
+        return HttpResponseRedirect(reverse('index'))
 
-    user = User.objects.create_user(email=email, username=name, password=pw, address=address)
-
-    return HttpResponseRedirect(reverse('index')) # 인덱스 화면으로 넘어간다
-
-
-# 로그인
-def login(request) :
-    # 로그인 후 인덱스 페이지로 이동
-    # if request.method == "POST" :
-    #     email = request.POST['email']
-    #     pw = request.POST['pw']
-
-    #     getUser = User.objects.filter(email = email)    
-
-    #     if getUser is None :
-    #         return HttpResponseRedirect(reverse('login'), {'error': 'username or password is incorrect'}) # 로그인 화면으로 넘어간다
-    #     else :
-    #         for user in getUser :
-    #             if user.pw == pw :
-    #                 return HttpResponseRedirect(reverse('index'))
-    #                 # pass
-    #             else :
-    #                 return HttpResponseRedirect(reverse('login'), {'error': 'username or password is incorrect'}) # 로그인 화면으로 넘어간다
-            
-    #         # return HttpResponseRedirect(reverse('login')) # 로그인 화면으로 넘어간다
-            
-    pass
+    # 아니라면 화면을 렌더링해준다.
+    return render(request, 'Furniture_Forest/sign-up.html')

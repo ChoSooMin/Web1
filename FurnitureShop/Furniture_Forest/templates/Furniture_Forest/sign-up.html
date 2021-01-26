@@ -7,7 +7,7 @@
     <h1 class="navbar-brand text-success logo h1 align-self-center" style="text-align: center;">Forest Furniture Shop</h1>
     <h2 class="navbar-brand text-success logo h2 align-self-center" style="text-align: center;"><b>회원가입</b></h2>
     <div class="row py-5">
-        <form class="col-md-9 m-auto" method="POST" action="./signUp"> {% csrf_token %}
+        <form class="col-md-9 m-auto" method="POST" action="{% url 'signUp' %}"> {% csrf_token %}
             <div class="row">
                 <div class="form-group col-md-6 mb-3">
                     <label for="inputemail">Email</label>

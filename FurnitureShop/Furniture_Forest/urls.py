@@ -7,8 +7,6 @@ urlpatterns=[
     path('shop/', views.shop, name="shop"),
     path('shoppingBasket/', views.shoppingBasket, name="shoppingBasket"),
     path('addToBasket', views.addToBasket, name="addToBasket"),
-    path('login/', views.loginPage, name="login"),
-    path('signUp/', views.signUpPage, name="signUp"),
-    # path('signUp', views.signUp),
-    # path('login', views.login)
+    path('login/', views.login, name="login"),
+    path('signUp/', views.signUp, name="signUp")
 ]
