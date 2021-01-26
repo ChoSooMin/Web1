@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from .models import Product, User
+from django.contrib.auth.models import User
+from django.contrib import auth
 
 # baseUrl/ or baseUrl/index.html
 def index(request) :
@@ -50,33 +52,36 @@ def signUpPage(request) :
 # 회원가입
 def signUp(request) :
     # 회원가입 후, 로그인 화면으로 이동
-    email = request.POST['email']
-    pw = request.POST['password']
-    name = request.POST['name']
-    address = request.POST['address']
+    # email = request.POST['email']
+    # pw = request.POST['password']
+    # name = request.POST['name']
+    # address = request.POST['address']
 
-    user = User(email = email, pw = pw, name = name, address = address)
-    user.save() # 회원가입
+    # user = User.objects.create_user(username=name, email=email, password=pw)
 
-    return HttpResponseRedirect(reverse('login')) # 로그인 화면으로 넘어간다
+    pass
+    # return HttpResponseRedirect(reverse('index')) # 인덱스 화면으로 넘어간다
+
 
 # 로그인
 def login(request) :
     # 로그인 후 인덱스 페이지로 이동
-    email = request.POST['email']
-    pw = request.POST['pw']
+    # if request.method == "POST" :
+    #     email = request.POST['email']
+    #     pw = request.POST['pw']
 
-    getUser = User.objects.filter(email = email)
+    #     getUser = User.objects.filter(email = email)    
 
-    if getUser is None :
-        return HttpResponseRedirect(reverse('login'), {'error': 'username or password is incorrect'}) # 로그인 화면으로 넘어간다
-    else :
-        for user in getUser :
-                if user.pw == pw :
-                    return HttpResponseRedirect(reverse('index'))
-                    # pass
-                else :
-                    return HttpResponseRedirect(reverse('login'), {'error': 'username or password is incorrect'}) # 로그인 화면으로 넘어간다
+    #     if getUser is None :
+    #         return HttpResponseRedirect(reverse('login'), {'error': 'username or password is incorrect'}) # 로그인 화면으로 넘어간다
+    #     else :
+    #         for user in getUser :
+    #             if user.pw == pw :
+    #                 return HttpResponseRedirect(reverse('index'))
+    #                 # pass
+    #             else :
+    #                 return HttpResponseRedirect(reverse('login'), {'error': 'username or password is incorrect'}) # 로그인 화면으로 넘어간다
             
-            # return HttpResponseRedirect(reverse('login')) # 로그인 화면으로 넘어간다
+    #         # return HttpResponseRedirect(reverse('login')) # 로그인 화면으로 넘어간다
             
+    pass
