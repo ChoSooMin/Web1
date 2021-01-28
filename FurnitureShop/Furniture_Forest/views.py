@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from .models import Product, User
+from .models import Product, User, Basket
 from django.contrib import auth, messages
 
 # baseUrl/
@@ -28,14 +28,35 @@ def shopDetail(request) :
 # baseUrl/addToBasket
 def addToBasket(request) :
     product_id = request.POST['product_id']
-    product_quantity = request.POST['product_quantity']
-    print(product_id)
-    print(product_quantity)
-    product = Product.objects.get(pk=product_id)
+    product_quantity = int(request.POST['product_quantity'])
+
+    product = Product.objects.get(pk=product_id) 
     context = { "product": product }
-    # alert 창 띄워서 "계속 쇼핑하시겠습니까?" 예 : shop-detail.html 아니오 : shopping-basket.html
-    # return render(request, 'Furniture_Forest/shop-detail.html', context)
-    return render(request, 'Furniture_Forest/shopping-basket.html')
+
+    if request.user.is_authenticated:
+        print('로그인 되어있음')
+        curUser = request.user
+
+        basket = Basket.objects.filter(userIdx=curUser, productId=product).first()
+
+        if basket is not None:
+            print('장바구니에 존재')
+            quantity = basket.productQuantity
+            basket.productQuantity = quantity + product_quantity
+            basket.save()
+
+            messages.info(request, '장바구니에 추가되었습니다.')
+        else:
+            print('장바구니에 존재하지 않음')
+            insertBasket = Basket(userIdx=curUser, productId=product, productQuantity=product_quantity)
+            insertBasket.save()
+
+            messages.info(request, '장바구니에 추가되었습니다.')
+    else :
+        print('로그인 되어있지않음')
+        messages.info(request, '로그인되어있지 않습니다.')
+
+    return render(request, 'Furniture_Forest/shop-detail.html', context)
 
 # baseUrl/shopping-basket.html
 def shoppingBasket(request) :

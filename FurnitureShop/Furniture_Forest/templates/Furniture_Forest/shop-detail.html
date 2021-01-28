@@ -3,6 +3,13 @@
 {% block content %}
 
 <!-- Open Content -->
+<!-- 로그인하지 않고 장바구니에 담았을 때 나타나는 alert 창 -->
+{% if messages %}
+{% for message in messages %}
+{% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+{% endfor %}
+{% endif %}
+
 <section class="bg-light">
     <div class="container pb-5">
         <div class="row">
@@ -30,15 +37,10 @@
                                     <ul class="list-inline pb-3">
                                         <li class="list-inline-item text-right">
                                             수량
-                                            <input type="hidden" name="product_quantity" id="product_quantity"
-                                                value="1">
                                         </li>
-                                        <li class="list-inline-item"><span class="btn btn-success"
-                                                id="btn-minus">-</span></li>
-                                        <li class="list-inline-item"><span class="badge bg-secondary"
-                                                id="var-value">1</span></li>
-                                        <li class="list-inline-item"><span class="btn btn-success"
-                                                id="btn-plus">+</span></li>
+                                        <li class="list-inline-item">
+                                            <input type="text" class="form-control mt-1" id="product_quantity" name="product_quantity" placeholder="1">
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
