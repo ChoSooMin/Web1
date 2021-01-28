@@ -34,33 +34,58 @@ def addToBasket(request) :
     context = { "product": product }
 
     if request.user.is_authenticated:
-        print('로그인 되어있음')
         curUser = request.user
 
         basket = Basket.objects.filter(userIdx=curUser, productId=product).first()
 
         if basket is not None:
-            print('장바구니에 존재')
             quantity = basket.productQuantity
             basket.productQuantity = quantity + product_quantity
             basket.save()
 
             messages.info(request, '장바구니에 추가되었습니다.')
         else:
-            print('장바구니에 존재하지 않음')
             insertBasket = Basket(userIdx=curUser, productId=product, productQuantity=product_quantity)
             insertBasket.save()
 
             messages.info(request, '장바구니에 추가되었습니다.')
     else :
-        print('로그인 되어있지않음')
         messages.info(request, '로그인되어있지 않습니다.')
 
     return render(request, 'Furniture_Forest/shop-detail.html', context)
 
 # baseUrl/shopping-basket.html
 def shoppingBasket(request) :
+    if request.user.is_authenticated: # 로그인 O
+        basketList = Basket.objects.filter(userIdx = request.user)
+        productList = []
+
+        for basket in basketList:
+            product = basket.productId
+            productList.append(product)
+            
+        context = { "productList": productList } # 데이터 저장 객체
+
+        return render(request, 'Furniture_Forest/shopping-basket.html', context)
+    else: # 로그인 X
+        messages.info(request, '로그인되어있지 않습니다.')
+        return HttpResponseRedirect(reverse('shop'))
+
     return render(request, 'Furniture_Forest/shopping-basket.html')
+
+def deleteItem(request) :
+    curProduct = request.POST['curProduct']
+    curUser = request.user
+    basketItem = Basket.objects.filter(userIdx=curUser, productId=curProduct).first()
+    basketItem.delete()
+
+    return HttpResponseRedirect(reverse('shoppingBasket'))
+
+def deleteAllBasket(request) :
+    basketItems = Basket.objects.all()
+    basketItems.delete()
+
+    return HttpResponseRedirect(reverse('shoppingBasket'))
 
 # 로그인
 def login(request) :

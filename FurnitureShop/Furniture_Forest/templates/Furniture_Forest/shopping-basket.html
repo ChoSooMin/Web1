@@ -9,15 +9,16 @@
         <div class="col-lg-9-basket">
             <div class="row">
                 <!-- 장바구니 목록(각각) -->
+                {% for product in productList %}
                 <div class="col-md-4">
                     <div class="card mb-4 product-wap rounded-0">
                         <div class="card rounded-0">
                             <img class="card-img rounded-0 img-fluid"
-                                src="https://images.eq3.com/image-service/790a0341-5427-11ea-966f-0af5f9f3b9c4/COMPRESSED.jpg">
+                                src="{{ product.thumbnail }}">
                             <div
                                 class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <form action="" method="GET">
-                                    <input type="hidden" name="product-title" value="Activewear">
+                                <form action="{% url 'deleteItem' %}" method="POST"> {% csrf_token %}
+                                    <input type="hidden" name="curProduct" value="{{ product.pk }}">
                                     <div class="row pb-3">
                                         <div class="col d-grid">
                                             <button type="submit" class="btn btn-success btn-lg" name="submit"
@@ -28,89 +29,18 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <a href="{% url 'shopDetail' %}" class="h3 text-decoration-none">Oupidatat non</a>
-                            <p class="text-center mb-0">$250.00</p>
+                            <a href="{% url 'shopDetail'%}?product_id={{ product.id }}" class="h3 text-decoration-none">{{ product.name }}</a>
+                            <p class="text-center mb-0">{{ product.price }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 product-wap rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="{% static 'img/shop_01.png' %}">
-                            <div
-                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <form action="" method="GET">
-                                    <input type="hidden" name="product-title" value="Activewear">
-                                    <div class="row pb-3">
-                                        <div class="col d-grid">
-                                            <button type="submit" class="btn btn-success btn-lg" name="submit"
-                                                value="deleteItem">Delete</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="{% url 'shopDetail' %}" class="h3 text-decoration-none">Oupidatat non</a>
-                            <p class="text-center mb-0">$250.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 product-wap rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="{% static 'img/shop_02.png' %}" width="21"
-                                height="28">
-                            <div
-                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <form action="" method="GET">
-                                    <input type="hidden" name="product-title" value="Activewear">
-                                    <div class="row pb-3">
-                                        <div class="col d-grid">
-                                            <button type="submit" class="btn btn-success btn-lg" name="submit"
-                                                value="deleteItem">Delete</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="{% url 'shopDetail' %}" class="h3 text-decoration-none">Oupidatat non</a>
-                            <p class="text-center mb-0">$250.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 product-wap rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid"
-                                src="https://cdn.crowdpic.net/list-thumb/thumb_l_993AB57A3A5CFD9B118228199E746F61.jpg">
-                            <div
-                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <form action="" method="GET">
-                                    <input type="hidden" name="product-title" value="Activewear">
-                                    <div class="row pb-3">
-                                        <div class="col d-grid">
-                                            <button type="submit" class="btn btn-success btn-lg" name="submit"
-                                                value="deleteItem">Delete</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="{% url 'shopDetail' %}" class="h3 text-decoration-none">Oupidatat non</a>
-                            <p class="text-center mb-0">$250.00</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <!-- End 장바구니 목록-->
         <!-- Start Delete All Btn -->
         <div>
-            <form action="" method="GET">
-                <input type="hidden" name="product-title" value="Activewear">
+            <form action="{% url 'deleteAllBasket' %}" method="POST"> {% csrf_token %}
                 <div class="row pb-3">
                     <div class="col d-grid">
                         <button type="submit" class="btn btn-success btn-lg" name="submit" value="deleteAll">Delete
