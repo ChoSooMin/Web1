@@ -15,15 +15,15 @@
             <div class="col-lg-3">
                 <h1 class="h2 pb-4">Categories</h1>
                 <ul class="list-unstyled templatemo-accordion">
-                    <li class="nav-item"><a class="nav-link" href="#">All</a></li>
-                    <li><a class="nav-link" href="#">Chair</a></li>
-                    <li><a class="nav-link" href="#">Sofa</a></li>
-                    <li><a class="nav-link" href="#">Table</a></li>
-                    <li><a class="nav-link" href="#">Carpet</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'shop' %}all">All</a></li>
+                    <li><a class="nav-link" href="{% url 'shop' %}chair">Chair</a></li>
+                    <li><a class="nav-link" href="{% url 'shop' %}sofa">Sofa</a></li>
+                    <li><a class="nav-link" href="{% url 'shop' %}table">Table</a></li>
+                    <li><a class="nav-link" href="{% url 'shop' %}carpet">Carpet</a></li>
                 </ul>
             </div>
-
             <div class="col-lg-9">
+                <h1 class="h2 pb-4">{{ category }}</h1>
                 <div class="row">
                     {% for product in productList %}
                     <div class="col-md-4">

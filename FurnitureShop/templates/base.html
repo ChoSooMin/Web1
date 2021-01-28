@@ -52,7 +52,7 @@
                             <a class="nav-link" href="{% url 'index' %}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'shop' %}">Shop</a>
+                            <a class="nav-link" href="{% url 'shop' %}all">Shop</a>
                         </li>
                     </ul>
                 </div>
@@ -103,18 +103,18 @@
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Chair</a></li>
-                        <li><a class="text-decoration-none" href="#">Sofa</a></li>
-                        <li><a class="text-decoration-none" href="#">Table</a></li>
-                        <li><a class="text-decoration-none" href="#">Carpet</a></li>
+                        <li><a class="text-decoration-none" href="{% url 'shop' %}chair">Chair</a></li>
+                        <li><a class="text-decoration-none" href="{% url 'shop' %}sofa">Sofa</a></li>
+                        <li><a class="text-decoration-none" href="{% url 'shop' %}table">Table</a></li>
+                        <li><a class="text-decoration-none" href="{% url 'shop' %}carpet">Carpet</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Home</a></li>
-                        <li><a class="text-decoration-none" href="#">Shop</a></li>
+                        <li><a class="text-decoration-none" href="{% url 'index' %}">Home</a></li>
+                        <li><a class="text-decoration-none" href="{% url 'shop' %}all">Shop</a></li>
                     </ul>
                 </div>
 
@@ -141,7 +141,7 @@
     <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
     <script src="{% static 'js/jquery-migrate-1.2.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/templatemo.js' %}"></script>
+    <!-- <script src="{% static 'js/templatemo.js' %}"></script> -->
     <script src="{% static 'js/custom.js' %}"></script>
     <!-- End Script -->
 </body>

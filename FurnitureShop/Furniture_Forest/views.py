@@ -9,10 +9,14 @@ def index(request) :
     return render(request, 'Furniture_Forest/index.html')
 
 # baseUrl/shop
-def shop(request) :
+def shop(request, category) :
     # 목록을 가져오고, 리스트에 저장
-    productList = Product.objects.all()
-    context = { "productList": productList } # 데이터 저장 객체
+    if category == "all":
+        productList = Product.objects.all()
+    else:
+        productList = Product.objects.filter(category=category)
+
+    context = { "productList": productList, "category": category } # 데이터 저장 객체
     
     return render(request, 'Furniture_Forest/shop.html', context)
 
@@ -69,7 +73,7 @@ def shoppingBasket(request) :
         return render(request, 'Furniture_Forest/shopping-basket.html', context)
     else: # 로그인 X
         messages.info(request, '로그인되어있지 않습니다.')
-        return HttpResponseRedirect(reverse('shop'))
+        return HttpResponseRedirect(reverse('login'))
 
     return render(request, 'Furniture_Forest/shopping-basket.html')
 

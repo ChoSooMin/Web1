@@ -2,6 +2,14 @@
 {% load static %}
 {% block content %}
 
+
+<!-- 로그인하지 않았을 때 나타나는 alert 창 -->
+{% if messages %}
+{% for message in messages %}
+{% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+{% endfor %}
+{% endif %}
+
 <!-- Start Contact -->
 <div class="container py-5">
     <h1 class="navbar-brand text-success logo h1 align-self-center" style="text-align: center;">Forest Furniture Shop</h1>
