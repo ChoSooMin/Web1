@@ -29,12 +29,13 @@ def shopDetail(request) :
 def addToBasket(request) :
     product_id = request.POST['product_id']
     product_quantity = request.POST['product_quantity']
-    # print(product_id)
-    # print(product_quantity)
+    print(product_id)
+    print(product_quantity)
     product = Product.objects.get(pk=product_id)
     context = { "product": product }
     # alert 창 띄워서 "계속 쇼핑하시겠습니까?" 예 : shop-detail.html 아니오 : shopping-basket.html
-    return render(request, 'Furniture_Forest/shop-detail.html', context)
+    # return render(request, 'Furniture_Forest/shop-detail.html', context)
+    return render(request, 'Furniture_Forest/shopping-basket.html')
 
 # baseUrl/shopping-basket.html
 def shoppingBasket(request) :
